@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
@@ -18,4 +18,4 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-Vue.use(VueAxios, axios)
+createApp().use(VueAxios, axios)
