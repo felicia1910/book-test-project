@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiServers = {
-  url:'https://fe-interview-api.unnotech.com/books' 
+  url:'https://fe-interview-api.unnotech.com/' 
 }
 
 /**
@@ -9,14 +9,19 @@ const apiServers = {
  * @param {object} response 呼叫 api 成功回覆的資料
  */
 const successHandler = (response) => {
-  console.log(response)
   const { data } = response
   if (response) {
     if (data !== undefined) {
       // 取得呼叫 api 的相關資訊
-      const { config: { method, baseURL } } = response
-      writeResponseLog(method, baseURL, data)
-      //console.log(response)
+      const { config: { method,url, baseURL } } = response
+      let logUrl = ''
+      if (baseURL) {
+        const re = new RegExp(baseURL, 'g')
+        logUrl = url.replace(re, baseURL.slice(-1) === '/' ? '/' : '')
+      } else {
+        logUrl = url
+      }
+      writeResponseLog(method, logUrl, data)
       return data
     }
   }
