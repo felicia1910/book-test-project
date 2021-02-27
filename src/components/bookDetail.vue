@@ -11,7 +11,6 @@
 <script>
 import { onMounted, watch, computed } from "vue";
 import { callBookApis } from "@/componentsJs";
-import router from "@/router";
 import bookCatchError from "./bookCatchError";
 
 export default {

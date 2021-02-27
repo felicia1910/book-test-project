@@ -1,5 +1,6 @@
 <template>
   <div class="book-detail-box">
+    <bookCatchError :error-log="errorLog" :is-load="isLoad"></bookCatchError>
     <bookDetail :id="props.id"></bookDetail>
     <countBox v-if="fetchData && isLoad" :num="fetchData.data.price" :name="'價格'" :get-num="getPrice"></countBox>
     <countBox v-if="fetchData && isLoad" :num="fetchData.data.count" :name="'數量'" :get-num="getNum"></countBox>
@@ -13,7 +14,6 @@
 <script>
 import { onMounted, watch, reactive } from "vue";
 import { callBookApis } from "@/componentsJs";
-import router from "@/router";
 import bookDetail from "./bookDetail";
 import countBox from "./countBox";
 
