@@ -29,6 +29,9 @@ $color_dark_clear_gray:#eee;
 .over-size{
     @include size(100vw,100vh);
 }
-// body{
-//     background-color: $color_dark;
-// }
+
+body{
+    background-color: $color_dark;
+    min-width: 300px;
+    
+}

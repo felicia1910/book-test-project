@@ -15,6 +15,7 @@ export function callBookApi(whichApi, id, req) {
     }
 
     const callApi = (whichApi, id, req) => {
+        isLoad.value =false
         if (whichApi == 'callBooks') {
             bookServices.callBooks(id).then(res => {
                 success(res)

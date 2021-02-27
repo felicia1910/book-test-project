@@ -1,8 +1,9 @@
 <template>
   <div class="block">
-    <h1>number: {{ idx }}</h1>
-    <button @click="addState">+</button>
-    <button @click="miState">-</button>
+      <p>{{props.name}}:</p>
+    <div class="count-btn" @click="addState"><i class="fas fa-plus"></i></div>
+    <input type="text" v-model="idx" readonly>
+    <div class="count-btn" @click="miState"><i class="fas fa-minus"></i></div>
   </div>
 </template>
 
@@ -15,18 +16,25 @@ import bookCatchError from "./bookCatchError";
 export default {
   name: "bookDetail",
   props:{
-    id:{}
+    id:{},
+    num:{},
+    name:{},
+    getNum:{type:Function},
   },
   components: { bookCatchError },
   setup(props) {
-    const { idx, addState, miState } = counts(4);
+    const { idx, addState, miState,changeIdx } = counts(props.num);
 
+    watch(() => props.num, (val) => { 
+       changeIdx(val)
+    })
     
-    // onMounted(()=>{
-    //   getData()
-    // })
+    watch(idx,(val)=>{
+        props.getNum(val)//數字有變要傳出去
+    })
 
-    return { idx, addState, miState };
+
+    return {props, idx, addState, miState,changeIdx };
   }
 };
 </script>

@@ -2,10 +2,11 @@
 
 *{
     font-family: 微軟正黑體;
-    box-sizing: border-box;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
 }
 
 // 載入設計提供的樣式
-@import "./reset.css";
 @import "./home.scss";
 @import "./bookList.scss";

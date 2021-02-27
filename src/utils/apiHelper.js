@@ -103,11 +103,27 @@ const get = async (baseURL, url, data = {}) => {
     .catch(errorHandler)
 }
 
+const patch = async (baseURL, url, data = {}) => {
+  writeReqeustLog('patch', url, data)
+  return axios({
+    method: 'patch',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    baseURL,
+    url,
+    data
+  })
+    .then(successHandler)
+    .catch(errorHandler)
+}
+
 
 
 
 export default {
   post,
   get,
+  patch,
   apiServers
 }

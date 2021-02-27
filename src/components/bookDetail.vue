@@ -1,11 +1,9 @@
 <template>
   <div>
     <bookCatchError :error-log="errorLog" :is-load="isLoad"></bookCatchError>
-    <div :class="['book-list-box']">
-      <!-- data -->
-      <div class="book-detail" v-if="isLoad">
-        {{fetchData.data.name}}
-      </div>
+    <!-- data -->
+    <div class="book-detail" v-if="isLoad">
+      {{fetchData.data.name}}
     </div>
   </div>
 </template>

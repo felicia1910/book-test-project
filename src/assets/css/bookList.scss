@@ -15,9 +15,9 @@
 
 .book-list-title{
     font-size: 36px;
-    color:$color_dark;
+    color:$color_white;
     text-align: center;
-    margin-top: 10px;
+    margin:10px 0;
 }
 .book-list{
     border-radius: 10px;
@@ -40,17 +40,29 @@
 }
 
 .book-card{
-    cursor: pointer;
     @include size(400px,auto);
     margin: 20px 10px;
+    padding: 10px;
     text-align: left;
+    background-color: $color_white;
+    transition: .2s;
+}
+.book-card:hover{
+    background-color: $color_dark_clear_gray;
+}
+.img-box{
+    @include flex(center,center);
+    margin: 10px auto;
     background-color: $color_white;
 }
 .book-card img{
     @include size(350px,350px);
     object-fit: contain;
+    cursor: pointer;
+    background-color: $color_white;
 }
 .book-name{
+    cursor: pointer;
     font-weight: bold;
     color:$color_dark_dark;
     padding: 30px 20px 10px;
@@ -61,6 +73,7 @@
     padding: 0 15px;
 }
 .icon-box i{
+    cursor: pointer;
     color:$color_blue;
     padding: 6px;
     font-size: 18px;
@@ -68,8 +81,112 @@
 .icon-box i:hover{
     color:$color_blue_dark;
 }
+.book-card-border{
+    border:solid 5px $color_dark_gray;
+    border-radius: 10px;
+}
 
 //detail
+.book-detail-box{
+    margin: 20px auto;
+    width: 95vw;
+    border-radius: 10px;
+    border:double 5px $color_dark_gray;
+    background-color: $color_dark;
+    color:$color_white;
+    padding: 20px;
+}
 .book-detail{
-    
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.block{
+    margin: 10px 0;
+    @include flex(flex-start,center);
+}
+.count-btn{
+    border-radius: 5px;
+    @include size(40px,40px);
+    cursor: pointer;
+    background-color: $color_white;
+    color: $color_dark;
+    font-size: 20px;
+    font-weight: bold;
+    @include flex(center,center);
+}
+.block input{
+    margin: 0 10px;
+    border-radius: 5px;
+    height: 40px;
+}
+.block p{
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+.modify-btn-box{
+    @include flex(flex-end,center);
+}
+.modify-btn{
+    border:double 5px $color_white;
+    border-radius: 10px;
+    @include size(150px,50px);
+    @include flex(center,center);
+    letter-spacing: 1px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .1s;
+}
+.modify-btn:hover{
+    background-color: $color_dark_dark;
+    border:double 5px $color_white;
+    color: $color_white;
+}
+
+@media screen and (max-width: 1300px) {
+    .book-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center
+    }
+    .book-card{
+        width: 45%;
+    }
+    .book-name{
+        text-align: center;
+    }
+    .icon-box {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .book-card{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .book-list-box,.book-detail-box{
+        margin: 5px 0;
+    }
+    .block{
+        flex-wrap:wrap; 
+    }
+    .block p{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .modify-btn-box{
+        margin-top: 20px;
+    }
+    .book-card img{
+        @include size(200px,200px);
+    }
+    .block input {
+        width: 100px;
+    }
+    body{
+        overflow-x: scroll;
+    }
 }
