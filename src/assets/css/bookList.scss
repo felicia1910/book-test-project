@@ -1,0 +1,75 @@
+@import "./style.scss";
+
+.book-list-box{
+    @include size(95vw,auto);
+    @include flex(center,center);
+    margin: 10px auto;
+    flex-wrap: wrap;
+}
+.book-list-box-black{
+    background-color: $color_dark_clear_gray;
+}
+.error,.waiting{
+    color:$color_dark_gray;
+}
+
+.book-list-title{
+    font-size: 36px;
+    color:$color_dark;
+    text-align: center;
+    margin-top: 10px;
+}
+.book-list{
+    border-radius: 10px;
+    border:double 5px $color_dark_gray;
+    overflow-x: scroll;
+    display: grid;
+    grid-template-columns: repeat(6,400px);
+    grid-column-gap: 10px;
+    background-color: $color_white;
+}
+
+.book-list::-webkit-scrollbar{   
+    height: 15px;
+    cursor: pointer;
+}
+
+.book-list::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	background-color: $color_dark_gray;
+}
+
+.book-card{
+    cursor: pointer;
+    @include size(400px,auto);
+    margin: 20px 10px;
+    text-align: left;
+    background-color: $color_white;
+}
+.book-card img{
+    @include size(350px,350px);
+    object-fit: contain;
+}
+.book-name{
+    font-weight: bold;
+    color:$color_dark_dark;
+    padding: 30px 20px 10px;
+    @include nameInForm(100%);
+}
+.icon-box{
+    @include flex(flex-start,center);
+    padding: 0 15px;
+}
+.icon-box i{
+    color:$color_blue;
+    padding: 6px;
+    font-size: 18px;
+}
+.icon-box i:hover{
+    color:$color_blue_dark;
+}
+
+//detail
+.book-detail{
+    
+}

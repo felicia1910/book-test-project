@@ -1,23 +1,21 @@
 <template>
   <div class="home">
-    test
-    <img alt="Vue logo" src="../assets/logo.png">
+    <div class="going-btn" @click="goRoute">點擊到頁面</div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import bookServices from '@/services/bookServices'
+import router from '@/router'
 
 export default {
   name: 'Home',
   setup() {
-    // onMounted(() => {
-
-    // });
-
-
-    return {};
+    //使用在dom的函數
+    const goRoute=()=>{
+      router.push({name:'books'})
+    }
+    //使用在dom中的需要記得回傳
+    return {goRoute};
   }
 }
 </script>
