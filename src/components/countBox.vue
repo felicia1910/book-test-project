@@ -24,12 +24,9 @@ export default {
   components: { bookCatchError },
   setup(props) {
     const { idx, addState, miState,changeIdx } = counts(props.num);
-
-    watch(() => props.num, (val) => { 
-       changeIdx(val)
-    })
     
     watch(idx,(val)=>{
+      console.log('yes')
         props.getNum(val)//數字有變要傳出去
     })
 

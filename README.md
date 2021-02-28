@@ -51,6 +51,7 @@ npm run build
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ##專案的架構、邏輯說明##
+```
 主要分為
 assets-樣式和放圖
   (css使用採用scss開發，採用SMACSS，以不同page的方式去開發。)
@@ -64,6 +65,7 @@ store-vuex(此專案未使用)
 utils-開發小幫手設定處
 views-web顯示的每一頁放置處
   (Home為原始頁，其他不同路由則會以資料夾的形式去分ex.Books-index)
+```
 
 
 ## 使用的第三方 library ##
@@ -71,6 +73,7 @@ views-web顯示的每一頁放置處
 2.axios(串接api)
 
 ## 問題與解決 ##
+```
 Q. 之前只用cdn的方式做過vue3.0，所以在架vue-cli的時候照著官網create專案無法
 建立vue3.0的專案?
 A. 執行"npm update -g @vue/cli" 升級至少到4.0以上的版本才會出現建立vue3的選項。
@@ -83,11 +86,27 @@ A.照官網一步一步去做起。
 Q.邊建構專案一邊在思索需要安裝什麼，其實一個小小專案不太需要弄得太複雜，想了很久決定先把vuex拔掉，用vue3新出來的並且我沒做過的function components(類似react 的hook )去實驗這小專案?
 A.專案有點太小，這樣用function components反而有點麻煩...不過專案大點應該可以感受到他的好處，可以省略掉非常多變數。
 
+
 Q.function components的執行會在onMounted之前，那中間使用者要重call一次function該怎麼觸發?
 A.在function components定義好函數，函數跟著變數一起return出來去出操作。
+
 
 Q.vue2的this.$router.push在vue3不可再使用?
 A.需要從已經定義好的router裡的js引出去做router.push。
 
+
 Q.book跳到book/:id時要監聽到router裡的變數，用watch會看有黃字錯誤?
 A.查了資料看起來是因為用watch方式會太浪費資源，看建議使用computed能夠解決浪費問題。
+
+
+Q.檢查了下發現拿到的api回傳值跟一開始拿到的不太一樣??
+A.發現送出的request參數送錯了...
+
+
+Q.檢查了下發現拿到的api回傳值跟一開始拿到的不太一樣??
+A.發現送出的request參數送錯了...
+
+
+Q.檢查了下發現點擊數量會傳出奇怪的數字??
+A.又是非同步問題..把call api function放進function components裡面後，放進元件時要注意執行回傳的值想塞進元件中的變數時，執行後塞入動作事非同步的，目前使用setTimeout的方式，應該不是最好的處理方式，可能本身function components回傳的值也不是給人再放進元件中的變數用的...這部分可能要再多嘗試看看。
+```
